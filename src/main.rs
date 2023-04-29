@@ -21,7 +21,7 @@ async fn actix_web(
 
     let index = NamedFile::open_async(static_folder)
         .await
-        .map_err(|e| actix_web::error::ErrorInternalServerError(e))
+        .map_err(|e| actix_web::error::ErrorInternalServerError(e));
     
     let config = move |cfg: &mut ServiceConfig| {
         cfg.service(web::resource("/").route(web::get().to(index)));

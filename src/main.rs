@@ -2,7 +2,6 @@ use actix_files::NamedFile;
 //use actix_web::{get, web::ServiceConfig, Responder};
 use actix_web::{ web::{self, ServiceConfig}, Responder, };
 use shuttle_actix_web::ShuttleActixWeb;
-use shuttle_static_folder::StaticFolder;
 use std::path::PathBuf;
 
 mod api;

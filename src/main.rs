@@ -4,7 +4,6 @@ use actix_web::{ web::{self, ServiceConfig}, Responder, };
 use shuttle_actix_web::ShuttleActixWeb;
 use shuttle_static_folder::StaticFolder;
 use std::path::PathBuf;
-use shuttle_service::ResourceBuilder
 
 mod api;
 mod models;

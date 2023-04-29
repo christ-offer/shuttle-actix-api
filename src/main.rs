@@ -9,7 +9,7 @@ mod api;
 mod models;
 
 async fn index() -> impl Responder {
-    NamedFile::open_async("./static/index.html")
+    NamedFile::open_async("../static/index.html")
         .await
         .map_err(|e| actix_web::error::ErrorInternalServerError(e))
 }

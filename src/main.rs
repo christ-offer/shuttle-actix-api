@@ -2,6 +2,7 @@ use actix_files::NamedFile;
 //use actix_web::{get, web::ServiceConfig, Responder};
 use actix_web::{ web::{self, ServiceConfig}, Responder, };
 use shuttle_actix_web::ShuttleActixWeb;
+use shuttle_static_folder::StaticFolder;
 
 mod api;
 mod models;
@@ -12,8 +13,10 @@ async fn index() -> impl Responder {
         .map_err(|e| actix_web::error::ErrorInternalServerError(e))
 }
 
+
 #[shuttle_runtime::main]
 async fn actix_web(
+    #[shuttle_static_folder::StaticFolder] static_folder: PathBuf,
 ) -> ShuttleActixWeb<impl FnOnce(&mut ServiceConfig) + Send + Clone + 'static> {
     let config = move |cfg: &mut ServiceConfig| {
         cfg.service(web::resource("/").route(web::get().to(index)));
@@ -22,3 +25,4 @@ async fn actix_web(
 
     Ok(config.into())
 }
+

@@ -1,9 +1,7 @@
 use actix_files::NamedFile;
 //use actix_web::{get, web::ServiceConfig};
 use actix_web::{
-    get,
-    web::{self, ServiceConfig},
-    HttpRequest, HttpResponse, Responder,
+    web::{self, ServiceConfig}, Responder,
 };
 use shuttle_actix_web::ShuttleActixWeb;
 
